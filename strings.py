@@ -1,3 +1,6 @@
+from os import fork
+
+
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 def unique_english_letters(word):
@@ -49,11 +52,8 @@ print(x_length_words("he likes apples", 2))
 
 
 def check_for_name(sentence, name):
-    return sentence.upper().find(name.upper()) != -1
+    return name.upper() in sentence.upper()
 
-print(check_for_name("My name is Jamie", "Jamie"))
-print(check_for_name("My name is jamie", "Jamie"))
-print(check_for_name("My name is Samantha", "Jamie"))
 print('\n\n')
 
 def every_other_letter(word):
@@ -65,3 +65,32 @@ def every_other_letter(word):
 print(every_other_letter("Codecademy"))
 print(every_other_letter("Hello world!"))
 
+def reverse_string(word):
+    reversed = ''
+    for char in range(0, len(word)):
+        reversed += word[-char-1]
+    return reversed
+
+print('\n')
+print(reverse_string("Codecademy"))
+print(reverse_string("Hello world!"))
+print(reverse_string(""))
+
+
+def make_spoonerism(a,b):
+    a_first_char = a[0]
+    b_first_char =  b[0]
+    return b_first_char + a[1:] + ' ' + a_first_char + b[1:]
+
+print(make_spoonerism("Codecademy", "Learn"))
+print(make_spoonerism("Hello", "world!"))
+print(make_spoonerism("a", "b"))
+
+def add_exclamation(word):
+    while len(word) < 20:
+        word += '!'
+    return word
+
+print('\n\n')
+print(add_exclamation("Codecademy"))
+print(add_exclamation("Codecademy is the best place to learn"))
